@@ -331,8 +331,29 @@ struct FooterBar: View {
                     }
                 }
             }
+
+            VersionRow()
         }
         .padding(.top, 10)
+    }
+}
+
+struct VersionRow: View {
+    var body: some View {
+        HStack(spacing: 8) {
+            Text(AppVersion.label)
+                .font(.system(size: 11, weight: .regular))
+                .foregroundStyle(.tertiary)
+            Spacer(minLength: 0)
+            Button("Check for updates") {
+                AppUpdater.shared.checkForUpdates()
+            }
+            .buttonStyle(.plain)
+            .font(.system(size: 11, weight: .medium))
+            .foregroundStyle(.secondary)
+            .accessibilityLabel("Check for updates")
+        }
+        .padding(.horizontal, 2)
     }
 }
 

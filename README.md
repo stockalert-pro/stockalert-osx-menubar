@@ -13,11 +13,13 @@ Intel Macs and older macOS versions are not supported.
 
 ## Install from the disk image
 
-1. Open the latest [GitHub Release](https://github.com/stockalert-pro/stockalert-osx-menubar/releases/latest) and download `StockAlert.pro-0.1.0.dmg`.
+1. Open the latest [GitHub Release](https://github.com/stockalert-pro/stockalert-osx-menubar/releases/latest) and download `StockAlert.pro-0.1.1.dmg`.
 2. Open the `.dmg` and drag **StockAlert.pro** onto **Applications**.
 3. Open StockAlert.pro from Applications. A bell appears in the menu bar.
 4. Click the bell, then **Sign in**. Your browser opens `app.stockalert.pro/mac/connect`. After you confirm, macOS returns to the app via `stockalert://`.
 5. Allow notifications when macOS asks, so triggered alerts can show a banner.
+
+From 0.1.1 the app checks for updates once a day. You can also click **Check for updates** in the panel. Version 0.1.0 has no updater: install 0.1.1 once, later versions arrive in-app.
 
 <img src="docs/screenshots/install.png" alt="StockAlert.pro disk image with StockAlert.pro and Applications" width="640">
 
@@ -30,19 +32,29 @@ You need Xcode 26 (Swift 6.2) on an Apple Silicon Mac.
 ```bash
 git clone https://github.com/stockalert-pro/stockalert-osx-menubar.git
 cd stockalert-osx-menubar
+swift package resolve
 ./build.sh
 open out/StockAlert.pro.app
 ```
 
 `./build.sh` signs ad-hoc when the Developer ID certificate and provisioning profile are missing. Ad-hoc builds launch locally. They do not receive Apple Push Notification service traffic.
 
-Production push and a Gatekeeper-friendly download need:
+## Release builds
 
-- The Adanos Software GmbH Developer ID certificate in the keychain
-- `StockAlert.DeveloperID.provisionprofile` (not in git; pass `STOCKALERT_PROVISION_PROFILE`)
-- `NOTARY_PROFILE=stockalert-notary TIMESTAMP=1 SIGN_MODE=developer-id ./scripts/package-dmg.sh`
+Signing material never goes in git. Keep it on this Mac:
 
-That writes `out/StockAlert.pro-<version>.dmg`.
+- Developer ID certificate in the login keychain
+- Provisioning profile at `~/Library/Developer/StockAlert/StockAlert.DeveloperID.provisionprofile`
+- Notary login: Keychain profile `stockalert-notary`
+- Sparkle EdDSA private key in the Keychain, account `stockalert.pro` (public key is `SUPublicEDKey` in Info.plist)
+
+Then:
+
+```bash
+./scripts/package-dmg.sh
+```
+
+That notarizes `out/StockAlert.pro-<version>.dmg` and writes `out/appcast.xml` for Sparkle. Attach both files to the GitHub Release named `v<version>` so `releases/latest/download/appcast.xml` stays valid.
 
 Optional environment overrides, HTTPS only except loopback:
 

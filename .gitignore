@@ -10,3 +10,5 @@ out/
 *.certSigningRequest
 .env
 .env.*
+sparkle-ed25519*
+*.pem

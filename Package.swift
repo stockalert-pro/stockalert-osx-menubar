@@ -10,9 +10,15 @@ let package = Package(
     products: [
         .executable(name: "StockAlertMenuBar", targets: ["StockAlertMenuBar"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/sparkle-project/Sparkle", from: "2.9.6")
+    ],
     targets: [
         .executableTarget(
             name: "StockAlertMenuBar",
+            dependencies: [
+                .product(name: "Sparkle", package: "Sparkle")
+            ],
             path: "Sources/StockAlertMenuBar",
             exclude: ["Resources"],
             swiftSettings: [
