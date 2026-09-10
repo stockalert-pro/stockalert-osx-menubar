@@ -13,13 +13,13 @@ Intel Macs and older macOS versions are not supported.
 
 ## Install from the disk image
 
-1. Open the latest [GitHub Release](https://github.com/stockalert-pro/macos-menubar/releases/latest) and download `StockAlert.pro-0.1.0.dmg`.
-2. Open the `.dmg` and drag **StockAlert** onto **Applications**.
-3. Open StockAlert from Applications. A bell appears in the menu bar.
+1. Open the latest [GitHub Release](https://github.com/stockalert-pro/stockalert-osx-menubar/releases/latest) and download `StockAlert.pro-0.1.0.dmg`.
+2. Open the `.dmg` and drag **StockAlert.pro** onto **Applications**.
+3. Open StockAlert.pro from Applications. A bell appears in the menu bar.
 4. Click the bell, then **Sign in**. Your browser opens `app.stockalert.pro/mac/connect`. After you confirm, macOS returns to the app via `stockalert://`.
 5. Allow notifications when macOS asks, so triggered alerts can show a banner.
 
-<img src="docs/screenshots/install.png" alt="StockAlert.pro disk image with StockAlert and Applications" width="640">
+<img src="docs/screenshots/install.png" alt="StockAlert.pro disk image with StockAlert.pro and Applications" width="640">
 
 Download the `.dmg` only from this repository's Releases page. The signed app uses Developer ID `Developer ID Application: Adanos Software GmbH (39945LJS7U)`.
 
@@ -30,10 +30,10 @@ If Gatekeeper blocks the first launch, Control-click the app and choose Open. Th
 You need Xcode 26 (Swift 6.2) on an Apple Silicon Mac.
 
 ```bash
-git clone https://github.com/stockalert-pro/macos-menubar.git
-cd macos-menubar
+git clone https://github.com/stockalert-pro/stockalert-osx-menubar.git
+cd stockalert-osx-menubar
 ./build.sh
-open out/StockAlert.app
+open out/StockAlert.pro.app
 ```
 
 `./build.sh` signs ad-hoc when the Developer ID certificate and provisioning profile are missing. Ad-hoc builds launch locally. They do not receive Apple Push Notification service traffic.

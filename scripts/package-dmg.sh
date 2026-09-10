@@ -9,7 +9,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 IDENTITY="${CODESIGN_IDENTITY:-Developer ID Application: Adanos Software GmbH (39945LJS7U)}"
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$ROOT/Resources/Info.plist")"
-APP_NAME="StockAlert"
+APP_NAME="StockAlert.pro"
 VOL_NAME="StockAlert.pro"
 DMG_NAME="StockAlert.pro-${VERSION}.dmg"
 
