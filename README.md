@@ -40,7 +40,7 @@ Production push and a Gatekeeper-friendly download need:
 
 - The Adanos Software GmbH Developer ID certificate in the keychain
 - `StockAlert.DeveloperID.provisionprofile` (not in git; pass `STOCKALERT_PROVISION_PROFILE`)
-- `TIMESTAMP=1 SIGN_MODE=developer-id ./scripts/package-dmg.sh`
+- `NOTARY_PROFILE=stockalert-notary TIMESTAMP=1 SIGN_MODE=developer-id ./scripts/package-dmg.sh`
 
 That writes `out/StockAlert.pro-<version>.dmg`.
 
