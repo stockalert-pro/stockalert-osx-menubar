@@ -1,0 +1,12 @@
+.build/
+.swiftpm/
+*.app
+out/
+.DS_Store
+*.provisionprofile
+*.p12
+*.p8
+*.cer
+*.certSigningRequest
+.env
+.env.*
