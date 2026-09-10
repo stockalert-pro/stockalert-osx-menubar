@@ -3,6 +3,7 @@
 # TIMESTAMP=1 is required for Apple notarization.
 #
 # STOCKALERT_PROVISION_PROFILE=/path/to/profile \
+# NOTARY_PROFILE=stockalert-notary \
 #   ./scripts/package-dmg.sh
 set -euo pipefail
 

@@ -21,9 +21,7 @@ Intel Macs and older macOS versions are not supported.
 
 <img src="docs/screenshots/install.png" alt="StockAlert.pro disk image with StockAlert.pro and Applications" width="640">
 
-Download the `.dmg` only from this repository's Releases page. The signed app uses Developer ID `Developer ID Application: Adanos Software GmbH (39945LJS7U)`.
-
-If Gatekeeper blocks the first launch, Control-click the app and choose Open. That happens when Apple has not notarized the build yet.
+Download the `.dmg` only from this repository's Releases page. Releases are Developer ID signed and notarized by Apple (`Developer ID Application: Adanos Software GmbH (39945LJS7U)`).
 
 ## Build from source
 
